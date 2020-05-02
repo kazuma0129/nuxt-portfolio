@@ -4,11 +4,6 @@
       <router-link grey--text text--darken-2 to="/" class="mx-2">
         Home
       </router-link>
-      <!-- <span>|</span>
-      <router-link grey--text text--darken-2 to="/about" class="mx-2">
-        About
-      </router-link> -->
-      <span>|</span>
       <router-link grey--text text--darken-2 to="/blog" class="mx-2">
         Blog
       </router-link>

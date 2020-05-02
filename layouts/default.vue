@@ -32,14 +32,16 @@ export default {
 
   background: #c9d6ff; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    to right,
+    160deg,
     #e2e2e2,
-    #c9d6ff
+    #c9d6ff,
+    #ffe8df
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    to right,
+    160deg,
     #e2e2e2,
-    #c9d6ff
+    #c9d6ff,
+    #ffe8df
   ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
   .v-enter-active,

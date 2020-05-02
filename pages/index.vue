@@ -35,7 +35,7 @@ export default {
           icon: `mdi-github-circle`
         },
         {
-          name: 'twitter',
+          name: 'Twitter',
           url: `https://twitter.com/kazuma_0129`,
           icon: `mdi-twitter`
         },
