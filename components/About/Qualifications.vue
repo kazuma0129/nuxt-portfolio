@@ -1,22 +1,26 @@
-<template>
+, url:``<template>
   <v-card class="ma-5" color="transparent" flat>
-    <v-row>
-      <v-col align="start">
-        <h2 class="grey--text text--darken-2">{{ title }}</h2>
-      </v-col>
-    </v-row>
-    <v-row v-for="(i, key) in reverseItems" :key="key">
-      <v-col align="start" class="py-0 my-0">
-        <p class="font-weight-thin">
-          {{ i.date }}
-        </p>
-      </v-col>
-      <v-col align="start" class="py-0 my-0">
-        <p class="font-weight-thin">
-          {{ i.corpName }}
-        </p>
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row>
+        <v-col align="start">
+          <h2 class="grey--text text--darken-2">{{ title }}</h2>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container>
+      <v-row v-for="(i, key) in reverseItems" :key="key">
+        <v-col align="start" class="py-0 my-0">
+          <v-row>
+            <v-col class="font-weight-thin">
+              {{ i.date }}
+            </v-col>
+            <v-col class="font-weight-thin job">
+              <a :href="i.url" target="_blank"> {{ i.name }}</a>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 
@@ -28,15 +32,18 @@ export default {
       qualifications: [
         {
           date: 'Nov 2013',
-          corpName: 'Information Technology Passport Examination'
+          name: 'Information Technology Passport Examination',
+          url: `https://www.jitec.ipa.go.jp/1_11seido/ip.html`
         },
         {
           date: 'Nov 2017',
-          corpName: 'Fundamental Information Technology Engineer Examination'
+          name: 'Fundamental Information Technology Engineer Examination',
+          url: `https://www.jitec.ipa.go.jp/1_11seido/fe.html`
         },
         {
           date: 'Dec 2018',
-          corpName: 'Applied Information Technology Engineer Examination'
+          name: 'Applied Information Technology Engineer Examination',
+          url: `https://www.jitec.ipa.go.jp/1_11seido/ap.html`
         }
       ]
     }
@@ -48,3 +55,28 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.qual {
+  a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+  a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform 0.3s;
+  }
+  a:hover::after {
+    transform: scale(1, 1);
+  }
+}
+</style>

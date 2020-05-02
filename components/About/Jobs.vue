@@ -1,22 +1,26 @@
 <template>
   <v-card class="ma-5" color="transparent" flat>
-    <v-row>
-      <v-col align="start">
-        <h2 class="grey--text text--darken-2">{{ title }}</h2>
-      </v-col>
-    </v-row>
-    <v-row v-for="(i, key) in reverseJobs" :key="key">
-      <v-col align="start" class="py-0 my-0">
-        <p class="font-weight-thin">
-          {{ i.date }}
-        </p>
-      </v-col>
-      <v-col align="start" class="py-0 my-0">
-        <p class="font-weight-thin">
-          {{ i.corpName }}
-        </p>
-      </v-col>
-    </v-row>
+    <v-container>
+      <v-row>
+        <v-col align="start">
+          <h2 class="grey--text text--darken-2">{{ title }}</h2>
+        </v-col>
+      </v-row>
+    </v-container>
+    <v-container>
+      <v-row v-for="(i, key) in reverseJobs" :key="key">
+        <v-col align="start" class="py-0 my-0">
+          <v-row>
+            <v-col class="font-weight-thin">
+              {{ i.date }}
+            </v-col>
+            <v-col class="font-weight-thin job">
+              <a :href="i.url" target="_blank"> {{ i.corpName }}</a>
+            </v-col>
+          </v-row>
+        </v-col>
+      </v-row>
+    </v-container>
   </v-card>
 </template>
 
@@ -24,13 +28,33 @@
 export default {
   data() {
     return {
-      title: 'jobs',
+      title: 'Careers',
       jobs: [
-        { date: 'Aug 2018, 2 weeks', corpName: 'Diamond Head Co.,Ltd.' },
-        { date: 'Aug 2018, 4 days', corpName: 'NIFTY Corporation' },
-        { date: 'Sep 2018, 2 weeks', corpName: 'TIMEINTERMEDIA, Inc.' },
-        { date: 'Sep 2019, A monts', corpName: 'CyberAgent, Inc.' },
-        { date: 'Apr 2020, Now', corpName: 'CyberAgent, Inc.' }
+        {
+          date: 'Aug 2018, 2 weeks',
+          corpName: 'Diamond Head Co.,Ltd.',
+          url: 'display: inline-block;'
+        },
+        {
+          date: 'Aug 2018, 4 days',
+          corpName: 'NIFTY Corporation',
+          url: 'https://www.nifty.co.jp/'
+        },
+        {
+          date: 'Sep 2018, 2 weeks',
+          corpName: 'TIME INTERMEDIA, Inc.',
+          url: 'https://www.timedia.co.jp/'
+        },
+        {
+          date: 'Sep 2019, A monts',
+          corpName: 'CyberAgent, Inc.',
+          url: 'https://www.cyberagent.co.jp/'
+        },
+        {
+          date: 'Apr 2020, Now',
+          corpName: 'CyberAgent, Inc.',
+          url: 'https://www.cyberagent.co.jp/'
+        }
       ]
     }
   },
@@ -41,3 +65,28 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.job {
+  a {
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+  }
+  a::after {
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    content: '';
+    width: 100%;
+    height: 1px;
+    background: #333;
+    transform: scale(0, 1);
+    transform-origin: left top;
+    transition: transform 0.3s;
+  }
+  a:hover::after {
+    transform: scale(1, 1);
+  }
+}
+</style>
