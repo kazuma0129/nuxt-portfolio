@@ -65,7 +65,7 @@ export default {
   }
   a::after {
     position: absolute;
-    bottom: -4px;
+    bottom: 0px;
     left: 0;
     content: '';
     width: 100%;

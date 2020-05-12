@@ -31,9 +31,9 @@ export default {
       title: 'Careers',
       jobs: [
         {
-          date: 'Aug 2018, 2 weeks',
+          date: 'Aug 2018, A week',
           corpName: 'Diamond Head Co.,Ltd.',
-          url: 'display: inline-block;'
+          url: 'https://diamondhead.jp/'
         },
         {
           date: 'Aug 2018, 4 days',
@@ -46,7 +46,7 @@ export default {
           url: 'https://www.timedia.co.jp/'
         },
         {
-          date: 'Sep 2019, A monts',
+          date: 'Sep 2019, A month',
           corpName: 'CyberAgent, Inc.',
           url: 'https://www.cyberagent.co.jp/'
         },
@@ -75,7 +75,7 @@ export default {
   }
   a::after {
     position: absolute;
-    bottom: -4px;
+    bottom: 0px;
     left: 0;
     content: '';
     width: 100%;
