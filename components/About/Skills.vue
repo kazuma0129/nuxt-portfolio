@@ -19,7 +19,7 @@
         <v-col align="start">
           <v-row v-for="(j, jkey) in i.names" :key="jkey">
             <v-col class="py-0 my-0">
-              {{ j }}
+              {{ j }}{{ jkey === i.names.length - 1 ? '' : `,` }}
             </v-col>
           </v-row>
         </v-col>
@@ -36,18 +36,18 @@ export default {
       skills: [
         {
           category: `Langueages`,
-          names: [`JavaScript,`, `Node.js,`, `Python,`, `Ruby`]
+          names: [`JavaScript`, `TypeScript`, `Python`, `Ruby`]
         },
         {
           category: `Frameworks`,
-          names: [`Ruby on Rails,`, `Express,`, `Nuxt.js,`, `Vue.js`]
+          names: [`Ruby on Rails`, `Express`, `Nuxt.js`, `Vue.js`]
         },
-        { category: `DBs`, names: [`MongoDB,`, `Firestore,`, `MySQL`] },
+        { category: `DBs`, names: [`MongoDB`, `Firestore`, `MySQL`] },
         {
           category: `Others`,
           names: [
-            `Alexa Skill Development,`,
-            `Audio Signal Processing,`,
+            `Alexa Skill Development`,
+            `Audio Signal Processing`,
             `Audio Streaming`
           ]
         }

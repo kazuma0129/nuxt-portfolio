@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       title: 'Interests',
-      text: `Motorcycle, Netflix, Comedy, Noodle`
+      text: `Motorcycle, Netflix, Comedy, Ramen, ONSEN`
     }
   }
 }

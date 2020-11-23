@@ -2,7 +2,7 @@
   <v-col>
     <v-container>
       <v-card flat color="transparent" class="d-flex justify-center mt-10 mb-2">
-        <h1 class="grey--text text--darken-2">Blogs</h1>
+        <h1 class="grey--text text--darken-2">Blog</h1>
       </v-card>
     </v-container>
 
