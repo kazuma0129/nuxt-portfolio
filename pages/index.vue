@@ -63,7 +63,7 @@ export default {
         },
         {
           name: `LinkedIn`,
-          url: `https://www.linkedin.com/in/一真-大橋-29606b175`,
+          url: `https://www.linkedin.com/in/kazuma-ohashi-29606b175`,
           icon: ``
         }
       ]
