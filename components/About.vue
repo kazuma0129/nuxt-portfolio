@@ -11,16 +11,16 @@
         <Writings />
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" align="center">
-        <Features />
+        <Qualifications />
+      </v-col>
+      <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" align="center">
+        <Careers />
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" align="center">
         <Skills />
       </v-col>
       <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" align="center">
-        <Jobs />
-      </v-col>
-      <v-col cols="12" xs="12" sm="12" md="6" lg="6" xl="6" align="center">
-        <Qualifications />
+        <Features />
       </v-col>
     </v-row>
   </v-container>
@@ -32,7 +32,7 @@ import Features from '~/components/About/Features'
 import Interests from '~/components/About/Interests'
 import Writings from '~/components/About/Writings'
 import Skills from '~/components/About/Skills'
-import Jobs from '~/components/About/Jobs'
+import Careers from '~/components/About/Careers'
 import Qualifications from '~/components/About/Qualifications'
 
 export default {
@@ -42,7 +42,7 @@ export default {
     Interests,
     Writings,
     Skills,
-    Jobs,
+    Careers,
     Qualifications
   }
 }
