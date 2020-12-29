@@ -8,7 +8,7 @@
       </v-row>
     </v-container>
     <v-container>
-      <v-row v-for="(i, key) in contents" :key="key">
+      <v-row v-for="(i, key) in writings" :key="key">
         <v-col align="start" class="font-weight-thin feature">
           <a :href="i.url" target="_blank"> {{ i.title }}</a>
         </v-col>
@@ -18,25 +18,12 @@
 </template>
 
 <script>
+import { writings } from '../../constants'
 export default {
   data() {
     return {
       title: 'Writings',
-      contents: [
-        {
-          title: 'AWS研修を終えて',
-          url: 'https://cam-inc.co.jp/p/techblog/432843405245023035'
-        },
-        {
-          title:
-            'Firestoreのエラー "Converting circular structure to JSON Firebase"',
-          url: 'https://qiita.com/kazuma0129/items/fa0a67ebd54034339466'
-        },
-        {
-          title: '分散ロックを業務で使用したので書き留める',
-          url: 'https://cam-inc.co.jp/p/techblog/461029949445243945'
-        }
-      ]
+      writings
     }
   }
 }

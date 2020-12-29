@@ -1,17 +1,12 @@
 <template>
   <v-app dark>
     <v-content>
-      <!-- <AppHeader />
-      <transition mode="out-in">
-        <nuxt />
-      </transition> -->
       <nuxt />
     </v-content>
   </v-app>
 </template>
 
 <script>
-// import AppHeader from '~/components/AppHeader'
 export default {
   components: {
     // AppHeader
@@ -32,13 +27,13 @@ export default {
 
   background: #c9d6ff; /* fallback for old browsers */
   background: -webkit-linear-gradient(
-    310deg,
+    130deg,
     #c9d6ff,
     #e2e2e2,
     #ffe8df
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
-    310deg,
+    130deg,
     #c9d6ff,
     #e2e2e2,
     #ffe8df

@@ -8,7 +8,7 @@
       </v-row>
     </v-container>
     <v-container>
-      <v-row v-for="(i, key) in reverseJobs" :key="key">
+      <v-row v-for="(i, key) in reverseCareers" :key="key">
         <v-col align="start" class="py-0 my-0">
           <v-row>
             <v-col class="font-weight-thin">
@@ -25,42 +25,17 @@
 </template>
 
 <script>
+import { careers } from '../../constants'
 export default {
   data() {
     return {
       title: 'Careers',
-      jobs: [
-        {
-          date: 'Aug 2018, A week',
-          corpName: 'Diamond Head Co.,Ltd.',
-          url: 'https://diamondhead.jp/'
-        },
-        {
-          date: 'Aug 2018, 4 days',
-          corpName: 'NIFTY Corporation',
-          url: 'https://www.nifty.co.jp/'
-        },
-        {
-          date: 'Sep 2018, 2 weeks',
-          corpName: 'TIME INTERMEDIA, Inc.',
-          url: 'https://www.timedia.co.jp/'
-        },
-        {
-          date: 'Sep 2019, A month',
-          corpName: 'CyberAgent, Inc.',
-          url: 'https://www.cyberagent.co.jp/'
-        },
-        {
-          date: 'Apr 2020, Now',
-          corpName: 'CyberAgent, Inc.',
-          url: 'https://www.cyberagent.co.jp/'
-        }
-      ]
+      careers
     }
   },
   computed: {
-    reverseJobs() {
-      return this.jobs.slice().reverse()
+    reverseCareers() {
+      return this.careers.slice().reverse()
     }
   }
 }

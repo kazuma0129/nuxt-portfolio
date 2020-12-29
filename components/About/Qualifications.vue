@@ -25,27 +25,12 @@
 </template>
 
 <script>
+import { qualifications } from '../../constants'
 export default {
   data() {
     return {
       title: 'Qualifications',
-      qualifications: [
-        {
-          date: 'Nov 2013',
-          name: 'Information Technology Passport Examination',
-          url: `https://www.jitec.ipa.go.jp/1_11seido/ip.html`
-        },
-        {
-          date: 'Nov 2017',
-          name: 'Fundamental Information Technology Engineer Examination',
-          url: `https://www.jitec.ipa.go.jp/1_11seido/fe.html`
-        },
-        {
-          date: 'Dec 2018',
-          name: 'Applied Information Technology Engineer Examination',
-          url: `https://www.jitec.ipa.go.jp/1_11seido/ap.html`
-        }
-      ]
+      qualifications
     }
   },
   computed: {
