@@ -1,19 +1,23 @@
-const firebase = require('firebase')
+const firebase = require('firebase/app')
+require('firebase/storage')
 
 const firebaseConfig = {
-  apiKey: 'AIzaSyCcwTrJe7i6wWmuj45jC43dq4ozdczEun0',
-  authDomain: 'portfolio-site-1d580.firebaseapp.com',
-  databaseURL: 'https://portfolio-site-1d580.firebaseio.com',
-  projectId: 'portfolio-site-1d580',
-  storageBucket: 'portfolio-site-1d580.appspot.com',
-  messagingSenderId: '554132539705',
-  appId: '1:554132539705:web:9025d014d305b0cc'
+  apiKey: process.env.API_KEY,
+  authDomain: process.env.AUTH_DOMAIN,
+  databaseURL: process.env.DATABASE_URL,
+  projectId: process.env.PROJECT_ID,
+  storageBucket: process.env.STORAGE_BUCKET,
+  messagingSenderId: process.env.MESSAGING_SENDER_ID,
+  appId: process.env.APP_ID
 }
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig)
 
-const firestore = firebase.firestore()
-const storage = firebase.storage()
+// Initialize Firebase
+if (firebase.default.apps.length === 0) {
+  firebase.default.initializeApp(firebaseConfig)
+}
+
+const firestore = firebase.default.firestore
+const storage = firebase.default.storage
 
 module.exports = {
   firebase,

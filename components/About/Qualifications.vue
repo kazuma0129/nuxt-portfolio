@@ -1,4 +1,4 @@
-, url:``<template>
+<template>
   <v-card class="ma-5" color="transparent" flat>
     <v-container>
       <v-row>
@@ -9,7 +9,7 @@
     </v-container>
     <v-container>
       <v-row v-for="(i, key) in reverseItems" :key="key">
-        <v-col align="start" class="py-0 my-0">
+        <v-col align="start" class="">
           <v-row>
             <v-col class="font-weight-thin">
               {{ i.date }}

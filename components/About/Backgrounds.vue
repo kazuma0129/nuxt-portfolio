@@ -10,9 +10,7 @@
     <v-container>
       <v-row>
         <v-col align="start" class="font-weight-thin backgrounds">
-          <p>
-            I'm from Aomori Prefecture, Japan.
-          </p>
+          <p>I was born and raised in Aomori Prefecture, Japan.</p>
           <p>
             Graduate of
             <a href="https://www.fun.ac.jp/en" target="_blank">
@@ -20,9 +18,7 @@
             </a>
             Bachelor of System Information Sience.
           </p>
-          <p>
-            I'm currently working as a software engineer in Tokyo, Japan.
-          </p>
+          <p>I'm currently working as a software Engineer in Tokyo, Japan.</p>
         </v-col>
       </v-row>
     </v-container>

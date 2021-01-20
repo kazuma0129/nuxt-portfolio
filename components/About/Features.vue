@@ -9,7 +9,7 @@
     </v-container>
     <v-container>
       <v-row v-for="(i, key) in reverseFeatures" :key="key">
-        <v-col align="start" class="py-0 my-0">
+        <v-col align="start">
           <v-row>
             <v-col class="font-weight-thin"> {{ i.date }} {{ i.role }} </v-col>
             <v-col class="font-weight-thin feature">

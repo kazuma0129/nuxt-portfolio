@@ -8,8 +8,8 @@
       </v-row>
     </v-container>
     <v-container>
-      <v-row v-for="(i, key) in skills" :key="key">
-        <v-col align="start" class="py-0 my-0">
+      <v-row v-for="(i, key) in skills" :key="key" class="my-0">
+        <v-col align="start">
           <v-row>
             <v-col class="font-weight-thin">
               {{ i.category }}
@@ -18,7 +18,7 @@
         </v-col>
         <v-col align="start">
           <v-row v-for="(j, jkey) in i.names" :key="jkey">
-            <v-col class="py-0 my-0">
+            <v-col class="my-0">
               {{ j }}{{ jkey === i.names.length - 1 ? '' : `,` }}
             </v-col>
           </v-row>
@@ -35,20 +35,19 @@ export default {
       title: 'Skills',
       skills: [
         {
-          category: `Langueages`,
-          names: [`JavaScript`, `TypeScript`, `Python`, `Ruby`]
+          category: `Backend`,
+          names: ['Node.js (TypeScript, JavaScript)', 'Ruby on Rails']
         },
         {
-          category: `Frameworks`,
-          names: [`Ruby on Rails`, `Express`, `Nuxt.js`, `Vue.js`]
+          category: `Frontend`,
+          names: [`Nuxt.js`, `Vue.js`]
         },
-        { category: `DBs`, names: [`MongoDB`, `Firestore`, `MySQL`] },
         {
           category: `Others`,
           names: [
-            `Alexa Skill Development`,
-            `Audio Signal Processing`,
-            `Audio Streaming`
+            'Microservices Architecture',
+            'Audio Signal Processing',
+            'AlexaSkill Development'
           ]
         }
       ]

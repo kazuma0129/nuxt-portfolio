@@ -1,7 +1,29 @@
 const colors = require('vuetify/es5/util/colors').default
+require('dotenv').config()
+
+const {
+  API_KEY,
+  AUTH_DOMAIN,
+  DATABASE_URL,
+  PROJECT_ID,
+  STORAGE_BUCKET,
+  MESSAGING_SENDER_ID,
+  APP_ID
+} = process.env
 
 module.exports = {
-  mode: 'spa',
+  ssr: 'true',
+  env: {
+    project_name: 'kazuma0129 portfolio',
+    project_description: 'kazuma0129 portfolio',
+    API_KEY,
+    AUTH_DOMAIN,
+    DATABASE_URL,
+    PROJECT_ID,
+    STORAGE_BUCKET,
+    MESSAGING_SENDER_ID,
+    APP_ID
+  },
   /*
    ** Headers of the page
    */
@@ -58,7 +80,8 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxt/content'
   ],
   /*
    ** Axios module configuration
@@ -94,5 +117,6 @@ module.exports = {
      ** You can extend webpack config here
      */
     extend(config, ctx) {}
-  }
+  },
+  telemetry: false
 }

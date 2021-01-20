@@ -27,13 +27,13 @@
       </v-row>
     </v-container>
 
-    <v-container>
+    <!-- <v-container>
       <v-row justify="center">
         <v-col cols="8">
           <span v-html="post.content" />
         </v-col>
       </v-row>
-    </v-container>
+    </v-container> -->
   </v-col>
 </template>
 

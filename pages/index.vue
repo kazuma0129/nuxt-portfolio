@@ -28,7 +28,7 @@
           :key="key"
           flat
           color="transparent"
-          class=" mx-3 sns"
+          class="mx-3 sns"
         >
           <a :href="i.url" target="_blank">{{ i.name }}</a>
         </v-card>

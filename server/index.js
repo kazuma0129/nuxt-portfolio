@@ -24,6 +24,7 @@ async function start() {
     await nuxt.ready()
   }
 
+  await fastify.register(require('middie'))
   fastify.use(nuxt.render)
 
   fastify.listen(port, host, (err, address) => {
