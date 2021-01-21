@@ -12,7 +12,7 @@ const {
 } = process.env
 
 module.exports = {
-  ssr: 'true',
+  ssr: 'false',
   env: {
     project_name: 'kazuma0129 portfolio',
     project_description: 'kazuma0129 portfolio',

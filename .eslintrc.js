@@ -8,6 +8,7 @@ module.exports = {
     parser: 'babel-eslint'
   },
   extends: [
+    'standard',
     '@nuxtjs',
     'prettier',
     'prettier/vue',

@@ -1,8 +1,10 @@
 <template>
-  <v-col>
+  <v-col :class="theme">
     <v-container>
       <v-card flat color="transparent" class="d-flex justify-center mt-10 mb-2">
-        <h1 class="grey--text text--darken-2">@kazuma0129</h1>
+        <h1 class="grey--text text--darken-2" @click="swichTheme">
+          @kazuma0129
+        </h1>
       </v-card>
       <v-card flat color="transparent" class="d-flex justify-center mt-2 mb-5">
         <h4 class="grey--text text--darken-2">
@@ -45,6 +47,8 @@ export default {
   },
   data() {
     return {
+      dark: true,
+      theme: 'light',
       links: [
         {
           name: 'GitHub',
@@ -67,6 +71,12 @@ export default {
           icon: ``
         }
       ]
+    }
+  },
+  methods: {
+    swichTheme() {
+      this.dark = !this.dark
+      this.theme = this.dark ? 'dark' : 'light'
     }
   }
 }
@@ -91,6 +101,61 @@ export default {
   }
   a:hover::after {
     transform: scale(1, 1);
+  }
+}
+
+.light {
+  background: #c9d6ff; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    130deg,
+    #c9d6ff,
+    #e2e2e2,
+    #ffe8df
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    130deg,
+    #c9d6ff,
+    #e2e2e2,
+    #ffe8df
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s;
+  }
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+  }
+  a {
+    color: #333;
+  }
+}
+
+.dark {
+  background: -webkit-linear-gradient(
+    260deg,
+    #2f5ae9,
+    #ac2121,
+    #853d20
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    260deg,
+    #313236,
+    #201c1c,
+    #423835
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  .v-enter-active,
+  .v-leave-active {
+    transition: opacity 0.5s;
+  }
+  .v-enter,
+  .v-leave-to {
+    opacity: 0;
+  }
+  a {
+    color: #333;
   }
 }
 </style>
