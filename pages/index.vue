@@ -2,14 +2,12 @@
   <v-col :class="theme">
     <v-container>
       <v-card flat color="transparent" class="d-flex justify-center mt-10 mb-2">
-        <h1 class="grey--text text--darken-2" @click="swichTheme">
-          @kazuma0129
-        </h1>
+        <!-- <h1 class="text-color text--darken-2" @click="swichTheme"> -->
+        <h1 class="text-color" @click="swichTheme">@kazuma0129</h1>
       </v-card>
       <v-card flat color="transparent" class="d-flex justify-center mt-2 mb-5">
-        <h4 class="grey--text text--darken-2">
-          Software Engineer, Tokyo, Japan
-        </h4>
+        <!-- <h4 class="text-color text--darken-2"> -->
+        <h4 class="text-color">Software Engineer, Tokyo, Japan</h4>
       </v-card>
     </v-container>
 
@@ -47,7 +45,7 @@ export default {
   },
   data() {
     return {
-      dark: true,
+      dark: false,
       theme: 'light',
       links: [
         {
@@ -75,6 +73,7 @@ export default {
   },
   methods: {
     swichTheme() {
+      this.$vuetify.theme.dark = this.dark
       this.dark = !this.dark
       this.theme = this.dark ? 'dark' : 'light'
     }
@@ -94,7 +93,7 @@ export default {
     content: '';
     width: 100%;
     height: 1px;
-    background: #333;
+    background: #616161;
     transform: scale(0, 1);
     transform-origin: left top;
     transition: transform 0.3s;
@@ -127,17 +126,20 @@ export default {
   .v-leave-to {
     opacity: 0;
   }
-  a {
-    color: #333;
+
+  .text-color {
+    color: #616161 !important;
+    caret-color: #616161 !important;
   }
 }
 
 .dark {
+  background: #313236; /* fallback for old browsers */
   background: -webkit-linear-gradient(
     260deg,
-    #2f5ae9,
-    #ac2121,
-    #853d20
+    #313236,
+    #201c1c,
+    #423835
   ); /* Chrome 10-25, Safari 5.1-6 */
   background: linear-gradient(
     260deg,
@@ -154,8 +156,10 @@ export default {
   .v-leave-to {
     opacity: 0;
   }
-  a {
-    color: #333;
+
+  .text-color {
+    color: #ffffff !important;
+    caret-color: #ffffff !important;
   }
 }
 </style>

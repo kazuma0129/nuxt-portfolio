@@ -1,9 +1,9 @@
 <template>
-  <v-card class="ma-5" color="transparent" flat>
+  <v-card class="ma-5 text-color" color="transparent" flat>
     <v-container>
       <v-row>
         <v-col align="start">
-          <h2 class="grey--text text--darken-2">{{ title }}</h2>
+          <h2 class="text--darken-2">{{ title }}</h2>
         </v-col>
       </v-row>
     </v-container>

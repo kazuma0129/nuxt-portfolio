@@ -12,7 +12,8 @@ const {
 } = process.env
 
 module.exports = {
-  ssr: 'false',
+  // mode: 'universal',
+  ssr: false,
   env: {
     project_name: 'kazuma0129 portfolio',
     project_description: 'kazuma0129 portfolio',
@@ -97,6 +98,15 @@ module.exports = {
     theme: {
       dark: false,
       themes: {
+        light: {
+          primary: colors.blue.accent4,
+          secondary: '#8bc34a',
+          accent: '#cddc39',
+          error: '#ffeb3b',
+          warning: '#ffc107',
+          info: '#ff5722',
+          success: '#795548'
+        },
         dark: {
           primary: colors.blue.darken2,
           accent: colors.grey.darken3,

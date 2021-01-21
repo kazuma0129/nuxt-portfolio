@@ -3,7 +3,7 @@
     <v-container>
       <v-row>
         <v-col align="start">
-          <h2 class="grey--text text--darken-2">{{ title }}</h2>
+          <h2 class="text-color text--darken-2">{{ title }}</h2>
         </v-col>
       </v-row>
     </v-container>
