@@ -2,11 +2,9 @@
   <v-col :class="theme">
     <v-container>
       <v-card flat color="transparent" class="d-flex justify-center mt-10 mb-2">
-        <!-- <h1 class="text-color text--darken-2" @click="swichTheme"> -->
         <h1 class="text-color" @click="swichTheme">@kazuma0129</h1>
       </v-card>
       <v-card flat color="transparent" class="d-flex justify-center mt-2 mb-5">
-        <!-- <h4 class="text-color text--darken-2"> -->
         <h4 class="text-color">Software Engineer, Tokyo, Japan</h4>
       </v-card>
     </v-container>
@@ -30,7 +28,8 @@
           color="transparent"
           class="mx-3 sns"
         >
-          <a :href="i.url" target="_blank">{{ i.name }}</a>
+          <!-- <a class="text-color" :href="i.url" target="_blank">{{ i.name }}</a> -->
+          <ExternalLink :href="i.url" :body="i.name" />
         </v-card>
       </v-card>
     </v-container>
@@ -39,13 +38,14 @@
 
 <script>
 import About from '~/components/About'
+import ExternalLink from '~/components/ExternalLink'
 export default {
   components: {
-    About
+    About,
+    ExternalLink
   },
   data() {
     return {
-      dark: false,
       theme: 'light',
       links: [
         {
@@ -71,38 +71,42 @@ export default {
       ]
     }
   },
+  mounted() {
+    const userPrefersDark =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+
+    const userPrefersLight =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: light)').matches
+
+    if (userPrefersDark) {
+      this.theme = 'dark'
+    }
+    if (userPrefersLight) {
+      this.theme = 'light'
+    }
+  },
   methods: {
     swichTheme() {
-      this.$vuetify.theme.dark = this.dark
-      this.dark = !this.dark
-      this.theme = this.dark ? 'dark' : 'light'
+      switch (this.theme) {
+        case 'light':
+          this.theme = 'dark'
+          this.$vuetify.theme.dark = true
+          break
+        case 'dark':
+          this.theme = 'light'
+          this.$vuetify.theme.dark = false
+          break
+        default:
+          break
+      }
     }
   }
 }
 </script>
 
 <style lang="scss">
-.sns {
-  a {
-    text-decoration: none;
-  }
-  a::after {
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    content: '';
-    width: 100%;
-    height: 1px;
-    background: #616161;
-    transform: scale(0, 1);
-    transform-origin: left top;
-    transition: transform 0.3s;
-  }
-  a:hover::after {
-    transform: scale(1, 1);
-  }
-}
-
 .light {
   background: #c9d6ff; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -135,18 +139,8 @@ export default {
 
 .dark {
   background: #313236; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    260deg,
-    #313236,
-    #201c1c,
-    #423835
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    260deg,
-    #313236,
-    #201c1c,
-    #423835
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  /* background: -webkit-linear-gradient(260deg, #313236, #201c1c, #423835);
+  background: linear-gradient(260deg, #313236, #201c1c, #423835); */
 
   .v-enter-active,
   .v-leave-active {

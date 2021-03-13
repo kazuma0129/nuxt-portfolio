@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ma-5 text-color" color="transparent" flat>
+  <div class="ma-5 text-color">
     <v-container>
       <v-row>
         <v-col align="start">
@@ -15,18 +15,22 @@
               {{ i.date }}
             </v-col>
             <v-col class="font-weight-thin job">
-              <a :href="i.url" target="_blank"> {{ i.name }}</a>
+              <ExternalLink :href="i.url" :body="i.name" />
             </v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
-  </v-card>
+  </div>
 </template>
 
 <script>
 import { qualifications } from '../../constants'
+import ExternalLink from '~/components/ExternalLink'
 export default {
+  components: {
+    ExternalLink
+  },
   data() {
     return {
       title: 'Qualifications',
@@ -42,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-.qual {
+/* .qual {
   a {
     position: relative;
     display: inline-block;
@@ -63,5 +67,5 @@ export default {
   a:hover::after {
     transform: scale(1, 1);
   }
-}
+} */
 </style>

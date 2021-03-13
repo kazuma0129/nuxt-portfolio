@@ -13,7 +13,11 @@
           <p>I was born and raised in Aomori Prefecture, Japan.</p>
           <p>
             Graduate of
-            <a href="https://www.fun.ac.jp/en" target="_blank">
+            <a
+              class="text-color"
+              href="https://www.fun.ac.jp/en"
+              target="_blank"
+            >
               Future University Hakodate.
             </a>
             Bachelor of System Information Sience.
@@ -50,7 +54,7 @@ export default {
     content: '';
     width: 100%;
     height: 1px;
-    background: #333;
+    background: #fff;
     transform: scale(0, 1);
     transform-origin: left top;
     transition: transform 0.3s;

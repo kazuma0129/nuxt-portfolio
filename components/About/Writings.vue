@@ -10,7 +10,7 @@
     <v-container>
       <v-row v-for="(i, key) in writings" :key="key">
         <v-col align="start" class="font-weight-thin feature">
-          <a :href="i.url" target="_blank"> {{ i.title }}</a>
+          <a class="text-color" :href="i.url" target="_blank"> {{ i.title }}</a>
         </v-col>
       </v-row>
     </v-container>

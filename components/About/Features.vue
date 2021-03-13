@@ -1,5 +1,6 @@
 <template>
-  <v-card class="ma-5 text-color" color="transparent" flat>
+  <!-- <v-card class="ma-5 text-color" color="transparent" flat> -->
+  <div class="ma-5 text-color">
     <v-container>
       <v-row>
         <v-col align="start">
@@ -12,19 +13,27 @@
         <v-col align="start">
           <v-row>
             <v-col class="font-weight-thin"> {{ i.date }} {{ i.role }} </v-col>
-            <v-col class="font-weight-thin feature">
-              <a :href="i.url" target="_blank"> {{ i.title }}</a>
+            <v-col class="font-weight-thin">
+              <!-- <a class="text-color" :href="i.url" target="_blank">
+                {{ i.title }}</a
+              > -->
+              <ExternalLink :href="i.url" :body="i.title" />
             </v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
-  </v-card>
+    <!-- </v-card> -->
+  </div>
 </template>
 
 <script>
 import { features } from '../../constants'
+import ExternalLink from '~/components/ExternalLink'
 export default {
+  components: {
+    ExternalLink
+  },
   data() {
     return {
       title: 'Features',
@@ -40,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-.feature {
+/* .feature {
   a {
     position: relative;
     display: inline-block;
@@ -61,5 +70,5 @@ export default {
   a:hover::after {
     transform: scale(1, 1);
   }
-}
+} */
 </style>

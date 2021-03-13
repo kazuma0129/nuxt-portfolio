@@ -1,5 +1,5 @@
 <template>
-  <v-card class="ma-5 text-color" color="transparent" flat>
+  <div class="ma-5 text-color">
     <v-container>
       <v-row>
         <v-col align="start">
@@ -14,19 +14,26 @@
             <v-col class="font-weight-thin">
               {{ i.date }}
             </v-col>
-            <v-col class="font-weight-thin job">
-              <a :href="i.url" target="_blank"> {{ i.corpName }}</a>
+            <v-col class="font-weight-thin">
+              <!-- <a class="text-color" :href="i.url" target="_blank">
+                {{ i.corpName }}</a
+              > -->
+              <ExternalLink :href="i.url" :body="i.corpName" />
             </v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
-  </v-card>
+  </div>
 </template>
 
 <script>
 import { careers } from '../../constants'
+import ExternalLink from '~/components/ExternalLink'
 export default {
+  components: {
+    ExternalLink
+  },
   data() {
     return {
       title: 'Careers',
@@ -42,7 +49,7 @@ export default {
 </script>
 
 <style lang="scss">
-.job {
+/* .job {
   a {
     position: relative;
     display: inline-block;
@@ -63,5 +70,5 @@ export default {
   a:hover::after {
     transform: scale(1, 1);
   }
-}
+} */
 </style>

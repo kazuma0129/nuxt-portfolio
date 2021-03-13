@@ -1,5 +1,6 @@
 <template>
-  <v-card class="ma-5 text-color" color="transparent" flat>
+  <!-- <v-card class="ma-5 text-color" color="transparent" flat> -->
+  <div class="ma-5 text-color">
     <v-container>
       <v-row>
         <v-col align="start">
@@ -25,7 +26,8 @@
         </v-col>
       </v-row>
     </v-container>
-  </v-card>
+    <!-- </v-card> -->
+  </div>
 </template>
 
 <script>
