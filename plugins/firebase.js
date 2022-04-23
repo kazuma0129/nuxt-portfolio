@@ -1,5 +1,4 @@
 const firebase = require('firebase/app')
-require('firebase/storage')
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -11,13 +10,12 @@ const firebaseConfig = {
   appId: process.env.APP_ID
 }
 
-// Initialize Firebase
-if (firebase.default.apps.length === 0) {
-  firebase.default.initializeApp(firebaseConfig)
+if (firebase.getApps().length === 0) {
+  firebase.initializeApp(firebaseConfig)
 }
 
-const firestore = firebase.default.firestore
-const storage = firebase.default.storage
+const firestore = require('firebase/firestore')
+const storage = require('firebase/storage')
 
 module.exports = {
   firebase,

@@ -20,29 +20,29 @@
     }
   },
   "dependencies": {
-    "@nuxt/content": "^1.11.1",
-    "@nuxtjs/axios": "^5.3.6",
-    "@nuxtjs/dotenv": "^1.4.1",
-    "@nuxtjs/pwa": "^3.3.4",
-    "core-js": "2.6.9",
-    "cross-env": "^5.2.0",
-    "fastify": "^3.10.1",
-    "firebase": "^8.2.3",
-    "middie": "^5.2.0",
-    "nuxt": "^2.14.0"
+    "@nuxt/content": "1.15.1",
+    "@nuxtjs/axios": "5.13.6",
+    "@nuxtjs/dotenv": "1.4.1",
+    "@nuxtjs/pwa": "3.3.5",
+    "core-js": "3.22.2",
+    "cross-env": "7.0.3",
+    "fastify": "3.28.0",
+    "firebase": "9.6.11",
+    "middie": "6.0.0",
+    "nuxt": "2.15.8"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "^5.0.0",
-    "@nuxtjs/eslint-module": "^3.0.2",
-    "@nuxtjs/vuetify": "^1.11.3",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^7.18.0",
-    "eslint-config-prettier": "^7.2.0",
-    "eslint-plugin-nuxt": "^2.0.0",
-    "eslint-plugin-prettier": "^3.3.1",
-    "husky": "^4.3.8",
-    "lint-staged": "^10.5.3",
-    "nodemon": "^2.0.7",
-    "prettier": "^2.2.1"
+    "@nuxtjs/eslint-config": "9.0.0",
+    "@nuxtjs/eslint-module": "3.1.0",
+    "@nuxtjs/vuetify": "1.12.3",
+    "@babel/eslint-parser": "7.17.0",
+    "eslint": "8.14.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-nuxt": "3.2.0",
+    "eslint-plugin-prettier": "4.0.0",
+    "husky": "4.3.8",
+    "lint-staged": "12.4.0",
+    "nodemon": "2.0.15",
+    "prettier": "2.6.2"
   }
 }
