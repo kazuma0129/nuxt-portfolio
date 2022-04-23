@@ -1,48 +1,22 @@
 {
   "name": "kazuma0129",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "@kazuma0129 portfolio site",
   "author": "KazumaOhashi",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
     "build": "nuxt build",
-    "start": "cross-env NODE_ENV=production node server/index.js",
+    "dev": "nuxt dev",
     "generate": "nuxt generate",
-    "lint": "eslint --ext .js,.vue --ignore-path .gitignore ."
-  },
-  "lint-staged": {
-    "*.{js,vue}": "eslint"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
+    "preview": "nuxt preview"
   },
   "dependencies": {
-    "@nuxt/content": "1.15.1",
-    "@nuxtjs/axios": "5.13.6",
-    "@nuxtjs/dotenv": "1.4.1",
-    "@nuxtjs/pwa": "3.3.5",
-    "core-js": "3.22.2",
-    "cross-env": "7.0.3",
-    "fastify": "3.28.0",
     "firebase": "9.6.11",
-    "middie": "6.0.0",
-    "nuxt": "2.15.8"
+    "sass": "1.50.1",
+    "vuetify": "v3.0.0-beta.1"
   },
   "devDependencies": {
-    "@nuxtjs/eslint-config": "9.0.0",
-    "@nuxtjs/eslint-module": "3.1.0",
-    "@nuxtjs/vuetify": "1.12.3",
-    "@babel/eslint-parser": "7.17.0",
-    "eslint": "8.14.0",
-    "eslint-config-prettier": "8.5.0",
-    "eslint-plugin-nuxt": "3.2.0",
-    "eslint-plugin-prettier": "4.0.0",
-    "husky": "4.3.8",
-    "lint-staged": "12.4.0",
-    "nodemon": "2.0.15",
-    "prettier": "2.6.2"
+    "@vuetify/vite-plugin": "1.0.0-alpha.10",
+    "nuxt": "3.0.0-rc.1"
   }
 }
