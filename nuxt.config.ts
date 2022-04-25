@@ -1,23 +1,29 @@
-import { defineNuxtConfig } from 'nuxt'
-import vuetify from '@vuetify/vite-plugin'
+import { defineNuxtConfig } from "nuxt";
+import vuetify from "@vuetify/vite-plugin";
 
-declare module 'vite' {
+declare module "vite" {
   interface UserConfig {
     // This is the missing options. Please see https://vitejs.dev/config/#ssr-options
     ssr?: {
-      external?: string[]
-      noExternal?: string | RegExp | (string | RegExp)[] | true
-      target?: 'node' | 'webworker'
-    }
+      external?: string[];
+      noExternal?: string | RegExp | (string | RegExp)[] | true;
+      target?: "node" | "webworker";
+    };
   }
 }
 
 // https://v3.nuxtjs.org/docs/directory-structure/nuxt.config
 export default defineNuxtConfig({
-  typescript: {
-    shim: false
+  components: {
+    global: true,
+    dirs: ["~/components"],
   },
-  css: ['vuetify/styles'],
+  typescript: {
+    shim: false,
+    strict: true,
+    typeCheck: true,
+  },
+  css: ["vuetify/styles"],
   vite: {
     plugins: [
       vuetify(),
@@ -25,164 +31,26 @@ export default defineNuxtConfig({
         // https://github.com/nuxt/framework/issues/2798
         configResolved(config) {
           const vuetifyIdx = config.plugins.findIndex(
-            (plugin) => plugin.name === 'vuetify:import'
-          )
+            (plugin) => plugin.name === "vuetify:import"
+          );
           const vueIdx = config.plugins.findIndex(
-            (plugin) => plugin.name === 'vite:vue'
-          )
+            (plugin) => plugin.name === "vite:vue"
+          );
           if (~vuetifyIdx && vuetifyIdx < vueIdx) {
-            const vuetifyPlugin = config.plugins[vuetifyIdx]
+            const vuetifyPlugin = config.plugins[vuetifyIdx];
             // @ts-ignore
-            config.plugins.splice(vuetifyIdx, 1)
+            config.plugins.splice(vuetifyIdx, 1);
             // @ts-ignore
-            config.plugins.splice(vueIdx, 0, vuetifyPlugin)
+            config.plugins.splice(vueIdx, 0, vuetifyPlugin);
           }
-        }
-      }
+        },
+      },
     ],
     ssr: {
-      noExternal: ['vuetify']
+      noExternal: ["vuetify"],
     },
     define: {
-      'process.env.DEBUG': 'false'
-    }
-  }
-})
-
-// import { defineNuxtConfig } from 'nuxt'
-
-// // https://v3.nuxtjs.org/api/configuration/nuxt.config
-// export default defineNuxtConfig({})
-
-// const colors = require('vuetify/es5/util/colors').default
-// require('dotenv').config()
-
-// const {
-//   API_KEY,
-//   AUTH_DOMAIN,
-//   DATABASE_URL,
-//   PROJECT_ID,
-//   STORAGE_BUCKET,
-//   MESSAGING_SENDER_ID,
-//   APP_ID
-// } = process.env
-
-// module.exports = {
-//   // mode: 'universal',
-//   ssr: false,
-//   env: {
-//     project_name: 'kazuma0129 portfolio',
-//     project_description: 'kazuma0129 portfolio',
-//     API_KEY,
-//     AUTH_DOMAIN,
-//     DATABASE_URL,
-//     PROJECT_ID,
-//     STORAGE_BUCKET,
-//     MESSAGING_SENDER_ID,
-//     APP_ID
-//   },
-//   /*
-//    ** Headers of the page
-//    */
-//   head: {
-//     titleTemplate: process.env.npm_package_name,
-//     title: process.env.npm_package_name || '',
-//     meta: [
-//       {
-//         charset: 'utf-8'
-//       },
-//       {
-//         name: 'viewport',
-//         content: 'width=device-width, initial-scale=1'
-//       },
-//       {
-//         hid: 'description',
-//         name: 'description',
-//         content: process.env.npm_package_description || ''
-//       }
-//     ],
-//     link: [
-//       {
-//         rel: 'icon',
-//         type: 'image/x-icon',
-//         href: '/favicon.ico'
-//       }
-//     ]
-//   },
-//   /*
-//    ** Customize the progress-bar color
-//    */
-//   loading: {
-//     color: '#fff'
-//   },
-//   /*
-//    ** Global CSS
-//    */
-//   css: [],
-//   /*
-//    ** Plugins to load before mounting the App
-//    */
-//   plugins: [`~/plugins/firebase`],
-//   /*
-//    ** Nuxt.js dev-modules
-//    */
-//   buildModules: [
-//     // Doc: https://github.com/nuxt-community/eslint-module
-//     '@nuxtjs/eslint-module',
-//     '@nuxtjs/vuetify'
-//   ],
-//   /*
-//    ** Nuxt.js modules
-//    */
-//   modules: [
-//     // Doc: https://axios.nuxtjs.org/usage
-//     '@nuxtjs/axios',
-//     '@nuxtjs/pwa',
-//     '@nuxt/content'
-//   ],
-//   /*
-//    ** Axios module configuration
-//    ** See https://axios.nuxtjs.org/options
-//    */
-//   axios: {},
-//   /*
-//    ** vuetify module configuration
-//    ** https://github.com/nuxt-community/vuetify-module
-//    */
-//   vuetify: {
-//     customVariables: ['~/assets/variables.scss'],
-//     theme: {
-//       dark: false,
-//       themes: {
-//         light: {
-//           primary: colors.blue.accent4,
-//           secondary: '#8bc34a',
-//           accent: '#cddc39',
-//           error: '#ffeb3b',
-//           warning: '#ffc107',
-//           info: '#ff5722',
-//           success: '#795548'
-//         },
-//         dark: {
-//           primary: colors.blue.darken2,
-//           accent: colors.grey.darken3,
-//           secondary: colors.amber.darken3,
-//           info: colors.teal.lighten1,
-//           warning: colors.amber.base,
-//           error: colors.deepOrange.accent4,
-//           success: colors.green.accent3
-//         }
-//       }
-//     }
-//   },
-//   /*
-//    ** Build configuration
-//    */
-//   build: {
-//     /*
-//      ** You can extend webpack config here
-//      */
-//     extend(config, ctx) {}
-//   },
-//   telemetry: false
-// }
+      "process.env.DEBUG": "false",
+    },
+  },
+});
