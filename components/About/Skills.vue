@@ -1,5 +1,4 @@
 <template>
-  <!-- <v-card class="ma-5 text-color" color="transparent" flat> -->
   <div class="ma-5 text-color">
     <v-container>
       <v-row>
@@ -20,40 +19,33 @@
         <v-col align="start">
           <v-row v-for="(j, jkey) in i.names" :key="jkey">
             <v-col class="my-0">
-              {{ j }}{{ jkey === i.names.length - 1 ? '' : `,` }}
+              {{ j }}{{ jkey === i.names.length - 1 ? "" : `,` }}
             </v-col>
           </v-row>
         </v-col>
       </v-row>
     </v-container>
-    <!-- </v-card> -->
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      title: 'Skills',
-      skills: [
-        {
-          category: `Backend`,
-          names: ['Node.js (TypeScript, JavaScript)', 'Ruby on Rails']
-        },
-        {
-          category: `Frontend`,
-          names: [`Nuxt.js`, `Vue.js`]
-        },
-        {
-          category: `Others`,
-          names: [
-            'Microservices Architecture',
-            'Audio Signal Processing',
-            'AlexaSkill Development'
-          ]
-        }
-      ]
-    }
-  }
-}
+<script setup lang="ts">
+const title = "Skills";
+const skills = [
+  {
+    category: `Backend`,
+    names: ["Node.js (TypeScript, JavaScript)", "Ruby on Rails"],
+  },
+  {
+    category: `Frontend`,
+    names: [`Nuxt.js`, `Vue.js`],
+  },
+  {
+    category: `Others`,
+    names: [
+      "Microservices Architecture",
+      "Audio Signal Processing",
+      "AlexaSkill Development",
+    ],
+  },
+];
 </script>

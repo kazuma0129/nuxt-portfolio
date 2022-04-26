@@ -29,15 +29,8 @@
   </v-card>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      title: 'Backgrounds',
-      text: `I love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSSI love OSS`
-    }
-  }
-}
+<script setup lang="ts">
+const title = "Backgrounds";
 </script>
 
 <style lang="scss">
@@ -51,7 +44,7 @@ export default {
     position: absolute;
     bottom: 0px;
     left: 0;
-    content: '';
+    content: "";
     width: 100%;
     height: 1px;
     background: #fff;

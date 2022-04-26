@@ -2,19 +2,17 @@
   <a class="text-color" :href="href" target="_blank">{{ body }}</a>
 </template>
 
-<script>
-export default {
-  props: {
-    href: {
-      type: String,
-      default: ''
-    },
-    body: {
-      type: String,
-      default: ''
-    }
-  }
-}
+<script setup lang="ts">
+defineProps({
+  href: {
+    type: String,
+    default: "",
+  },
+  body: {
+    type: String,
+    default: "",
+  },
+});
 </script>
 
 <style lang="scss">
@@ -26,7 +24,6 @@ a::after {
   position: absolute;
   bottom: -4px;
   left: 0;
-  /* content: ''; */
   width: 100%;
   height: 1px;
   background: #616161;
