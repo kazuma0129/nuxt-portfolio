@@ -1,4 +1,4 @@
-const firebase = require('firebase/app')
+import { initializeApp } from 'firebase/app'
 
 const firebaseConfig = {
   apiKey: process.env.API_KEY,
@@ -10,15 +10,4 @@ const firebaseConfig = {
   appId: process.env.APP_ID
 }
 
-if (firebase.getApps().length === 0) {
-  firebase.initializeApp(firebaseConfig)
-}
-
-const firestore = require('firebase/firestore')
-const storage = require('firebase/storage')
-
-module.exports = {
-  firebase,
-  firestore,
-  storage
-}
+export default initializeApp(firebaseConfig)

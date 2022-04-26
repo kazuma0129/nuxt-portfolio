@@ -17,14 +17,8 @@
   </v-card>
 </template>
 
-<script>
-import { writings } from '../../constants'
-export default {
-  data() {
-    return {
-      title: 'Writings',
-      writings
-    }
-  }
-}
+<script setup lang="ts">
+import { writings } from "../../constants";
+
+const title = "Writings";
 </script>

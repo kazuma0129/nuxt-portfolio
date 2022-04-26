@@ -1,8 +1,10 @@
 <template>
   <v-col :class="theme">
+    <!-- <v-col :class="theme"> -->
     <v-container>
       <v-card flat color="transparent" class="d-flex justify-center mt-10 mb-2">
-        <h1 class="text-color" @click="swichTheme">@kazuma0129</h1>
+        <!-- <h1 class="text-color" @click="switchTheme">@kazuma0129</h1> -->
+        <h1 class="text-color">@kazuma0129</h1>
       </v-card>
       <v-card flat color="transparent" class="d-flex justify-center mt-2 mb-5">
         <h4 class="text-color">Software Engineer, Tokyo, Japan</h4>
@@ -28,7 +30,6 @@
           color="transparent"
           class="mx-3 sns"
         >
-          <!-- <a class="text-color" :href="i.url" target="_blank">{{ i.name }}</a> -->
           <ExternalLink :href="i.url" :body="i.name" />
         </v-card>
       </v-card>
@@ -36,74 +37,93 @@
   </v-col>
 </template>
 
-<script>
-import About from '~/components/About'
-import ExternalLink from '~/components/ExternalLink'
-export default {
-  components: {
-    About,
-    ExternalLink
+<script setup lang="ts">
+const theme = "light";
+const links = [
+  {
+    name: "GitHub",
+    url: `https://github.com/kazuma0129`,
+    icon: `mdi-github-circle`,
   },
-  data() {
-    return {
-      theme: 'light',
-      links: [
-        {
-          name: 'GitHub',
-          url: `https://github.com/kazuma0129`,
-          icon: `mdi-github-circle`
-        },
-        {
-          name: 'Twitter',
-          url: `https://twitter.com/kazuma_0129`,
-          icon: `mdi-twitter`
-        },
-        {
-          name: 'Facebook',
-          url: `https://www.facebook.com/profile.php?id=100005368476501`,
-          icon: `mdi-facebook`
-        },
-        {
-          name: `LinkedIn`,
-          url: `https://www.linkedin.com/in/kazuma-ohashi-29606b175`,
-          icon: ``
-        }
-      ]
-    }
+  {
+    name: "Twitter",
+    url: `https://twitter.com/kazuma_0129`,
+    icon: `mdi-twitter`,
   },
-  mounted() {
-    const userPrefersDark =
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
+  {
+    name: "Facebook",
+    url: `https://www.facebook.com/profile.php?id=100005368476501`,
+    icon: `mdi-facebook`,
+  },
+  {
+    name: `LinkedIn`,
+    url: `https://www.linkedin.com/in/kazuma-ohashi-29606b175`,
+    icon: ``,
+  },
+];
+// export default {
+//   data() {
+//     return {
+//       theme: "light",
+//       links: [
+// {
+//   name: "GitHub",
+//   url: `https://github.com/kazuma0129`,
+//   icon: `mdi-github-circle`,
+// },
+// {
+//   name: "Twitter",
+//   url: `https://twitter.com/kazuma_0129`,
+//   icon: `mdi-twitter`,
+// },
+// {
+//   name: "Facebook",
+//   url: `https://www.facebook.com/profile.php?id=100005368476501`,
+//   icon: `mdi-facebook`,
+// },
+// {
+//   name: `LinkedIn`,
+//   url: `https://www.linkedin.com/in/kazuma-ohashi-29606b175`,
+//   icon: ``,
+// },
+//       ],
+//     };
+//   },
+//   // mounted() {
+//   //   const userPrefersDark =
+//   //     window.matchMedia &&
+//   //     window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    const userPrefersLight =
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: light)').matches
+//   //   const userPrefersLight =
+//   //     window.matchMedia &&
+//   //     window.matchMedia("(prefers-color-scheme: light)").matches;
 
-    if (userPrefersDark) {
-      this.theme = 'dark'
-    }
-    if (userPrefersLight) {
-      this.theme = 'light'
-    }
-  },
-  methods: {
-    swichTheme() {
-      switch (this.theme) {
-        case 'light':
-          this.theme = 'dark'
-          this.$vuetify.theme.dark = true
-          break
-        case 'dark':
-          this.theme = 'light'
-          this.$vuetify.theme.dark = false
-          break
-        default:
-          break
-      }
-    }
-  }
-}
+//   //   if (userPrefersDark) {
+//   //     this.theme = "dark";
+//   //   } else if (userPrefersLight) {
+//   //     this.theme = "light";
+//   //   }
+//   // },
+//   methods: {
+//     switchTheme() {
+//       type Theme = "light" | "dark";
+
+//       const fn = (to: Theme) => {
+//         return (from: Theme) => {
+//           this.theme = to;
+//           this.$vuetify.theme.dark = from === "light";
+//         };
+//       };
+
+//       const func = {
+//         light: fn("dark"),
+//         dark: fn("light"),
+//       };
+
+//       return func[this.theme](this.theme);
+//     },
+//   },
+// };
 </script>
 
 <style lang="scss">
@@ -139,8 +159,6 @@ export default {
 
 .dark {
   background: #313236; /* fallback for old browsers */
-  /* background: -webkit-linear-gradient(260deg, #313236, #201c1c, #423835);
-  background: linear-gradient(260deg, #313236, #201c1c, #423835); */
 
   .v-enter-active,
   .v-leave-active {

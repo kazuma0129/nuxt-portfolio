@@ -19,13 +19,7 @@
   </v-card>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      title: 'Interests',
-      text: `Motorcycle, Netflix, Comedy, Ramen, ONSEN`
-    }
-  }
-}
+<script setup lang="ts">
+const title = "Interests";
+const text = "Motorcycle, Netflix, Comedy, Ramen, ONSEN";
 </script>
