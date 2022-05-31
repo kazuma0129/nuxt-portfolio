@@ -1,10 +1,8 @@
 <template>
   <v-col :class="theme">
-    <!-- <v-col :class="theme"> -->
     <v-container>
       <v-card flat color="transparent" class="d-flex justify-center mt-10 mb-2">
-        <!-- <h1 class="text-color" @click="switchTheme">@kazuma0129</h1> -->
-        <h1 class="text-color">@kazuma0129</h1>
+        <h1 class="text-color" @click="switchTheme">@kazuma0129</h1>
       </v-card>
       <v-card flat color="transparent" class="d-flex justify-center mt-2 mb-5">
         <h4 class="text-color">Software Engineer, Tokyo, Japan</h4>
@@ -38,92 +36,38 @@
 </template>
 
 <script setup lang="ts">
-const theme = "light";
-const links = [
-  {
-    name: "GitHub",
-    url: `https://github.com/kazuma0129`,
-    icon: `mdi-github-circle`,
-  },
-  {
-    name: "Twitter",
-    url: `https://twitter.com/kazuma_0129`,
-    icon: `mdi-twitter`,
-  },
-  {
-    name: "Facebook",
-    url: `https://www.facebook.com/profile.php?id=100005368476501`,
-    icon: `mdi-facebook`,
-  },
-  {
-    name: `LinkedIn`,
-    url: `https://www.linkedin.com/in/kazuma-ohashi-29606b175`,
-    icon: ``,
-  },
-];
-// export default {
-//   data() {
-//     return {
-//       theme: "light",
-//       links: [
-// {
-//   name: "GitHub",
-//   url: `https://github.com/kazuma0129`,
-//   icon: `mdi-github-circle`,
-// },
-// {
-//   name: "Twitter",
-//   url: `https://twitter.com/kazuma_0129`,
-//   icon: `mdi-twitter`,
-// },
-// {
-//   name: "Facebook",
-//   url: `https://www.facebook.com/profile.php?id=100005368476501`,
-//   icon: `mdi-facebook`,
-// },
-// {
-//   name: `LinkedIn`,
-//   url: `https://www.linkedin.com/in/kazuma-ohashi-29606b175`,
-//   icon: ``,
-// },
-//       ],
-//     };
-//   },
-//   // mounted() {
-//   //   const userPrefersDark =
-//   //     window.matchMedia &&
-//   //     window.matchMedia("(prefers-color-scheme: dark)").matches;
+import { Ref } from "vue";
+import { links } from "../constants";
 
-//   //   const userPrefersLight =
-//   //     window.matchMedia &&
-//   //     window.matchMedia("(prefers-color-scheme: light)").matches;
+type Theme = "light" | "dark";
+const theme = useState<Theme>("theme", () => "light");
 
-//   //   if (userPrefersDark) {
-//   //     this.theme = "dark";
-//   //   } else if (userPrefersLight) {
-//   //     this.theme = "light";
-//   //   }
-//   // },
-//   methods: {
-//     switchTheme() {
-//       type Theme = "light" | "dark";
+const setThemeFactory = (prev: Ref<Theme>) => (next: Theme) =>
+  (prev.value = next);
+const setTheme = setThemeFactory(theme);
 
-//       const fn = (to: Theme) => {
-//         return (from: Theme) => {
-//           this.theme = to;
-//           this.$vuetify.theme.dark = from === "light";
-//         };
-//       };
+const switchTheme = () => {
+  setTheme(theme.value === "light" ? "dark" : "light");
+};
 
-//       const func = {
-//         light: fn("dark"),
-//         dark: fn("light"),
-//       };
+const checkThemePreferences = (window: Window): Theme => {
+  const m = window.matchMedia;
+  if (!m) {
+    return "light";
+  }
+  if (m("(prefers-color-scheme: light)").matches) {
+    return "light";
+  }
+  if (m("(prefers-color-scheme: dark)").matches) {
+    return "dark";
+  }
+  return "light";
+};
 
-//       return func[this.theme](this.theme);
-//     },
-//   },
-// };
+onMounted(() => {
+  const userTheme = checkThemePreferences(window);
+  setTheme(userTheme);
+});
 </script>
 
 <style lang="scss">
